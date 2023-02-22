@@ -9,17 +9,12 @@ app.use(cors());
 
 
 const dbName = 'authentication';
-console.log(process.env)
-const DB_USERNAME = process.env.DB_USERNAME
-console.log(DB_USERNAME)
-const DB_PASSWORD = process.env.DB_PASSWORD
-const DB_SRC = process.env.DB_SRC
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_SRC}/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
    client.connect().then(() => {
 
-    app.listen(3000, function () {
+    app.listen(process.env.PORT || 3000, function () {
       console.log("server is running");
     });
 
