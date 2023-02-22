@@ -1,0 +1,5 @@
+ // "scripts": {
+  //   "start": "webpack-dev-server .",
+  //   "build": "rm -rf dist && webpack --mode development",
+  //   "dev": "node ./backend/server.js"
+  // },
