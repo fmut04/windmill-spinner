@@ -9,7 +9,9 @@ app.use(cors());
 
 
 const dbName = 'authentication';
+console.log(process.env)
 const DB_USERNAME = process.env.DB_USERNAME
+console.log(DB_USERNAME)
 const DB_PASSWORD = process.env.DB_PASSWORD
 const DB_SRC = process.env.DB_SRC
 const { MongoClient, ServerApiVersion } = require('mongodb');
@@ -73,22 +75,9 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
         });
  });
 
-
-
-
- const path = require("path")
- const DIST_DIR = path.join(__dirname, "public");
- const HTML_FILE = path.join(DIST_DIR, "index.html");
- 
-
- app.use(express.static("public"));
- app.use(express.static("src"));
- 
- app.get("/", (req, res) => {
-    res.sendFile(HTML_FILE, function(err){
-       if(err){
-          res.status(500).send(err);
-       }
-    });
- });
-
+  const path = require("path")
+  app.use(express.static(path.join(__dirname, '../dist')))
+  app.use(express.static("public"));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist'))
+  })

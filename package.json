@@ -2,11 +2,9 @@
   "name": "new-windmill-spinner",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/index.js",
+  "main": "/public/index.js",
   "scripts": {
-    "start": "webpack-dev-server --config=webpack.config.dev.js --open",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "create": "webpack",
+    "start": "node backend/server.js",
     "build": "webpack --config=webpack.config.prod.js"
   },
   "keywords": [],
