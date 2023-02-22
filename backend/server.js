@@ -13,14 +13,14 @@ const DB_USERNAME = process.env.DB_USERNAME
 const DB_PASSWORD = process.env.DB_PASSWORD
 const DB_SRC = process.env.DB_SRC
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = `mongodb+srv://${"f709"}:${"Romona04!"}@${"clicker-game-db.8nvb1a0.mongodb.net"}/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_SRC}/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
    client.connect().then(() => {
 
     app.listen(3000, function () {
       console.log("server is running");
     });
-    
+
        console.log('Connected to MongoDB');
        const db = client.db(dbName);
        const usersCollection = db.collection('users');
