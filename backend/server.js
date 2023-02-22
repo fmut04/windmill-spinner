@@ -16,6 +16,11 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = `mongodb+srv://${"f709"}:${"Romona04!"}@${"clicker-game-db.8nvb1a0.mongodb.net"}/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
    client.connect().then(() => {
+
+    app.listen(3000, function () {
+      console.log("server is running");
+    });
+    
        console.log('Connected to MongoDB');
        const db = client.db(dbName);
        const usersCollection = db.collection('users');
@@ -68,9 +73,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
         });
  });
 
- app.listen(3000, function () {
-  console.log("server is running");
-});
+
 
 
  const path = require("path")
