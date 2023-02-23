@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "webpack",
+    "start": "npm install && node server.js",
+    "build": "babel src -d dist",
     "dev": "cd ../ && npm run start"
   },
   "author": "",
