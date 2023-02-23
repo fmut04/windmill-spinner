@@ -72,7 +72,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
   const path = require("path")
   app.use(express.static(path.join(__dirname, '../dist')))
-  app.use(express.static("public"));
+  app.use(express.static(path.join(__dirname, '../public')));
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../dist'))
   })
